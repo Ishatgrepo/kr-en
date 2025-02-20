@@ -9,7 +9,7 @@ from pyrogram.errors import FloodWait
 from pyrogram import Client, filters, enums
 from .check_user_status import handle_user_status
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
-from utils import verify_user, check_token
+from utils import verify_user, check_token, check_verification, get_token
 @Client.on_message((filters.private | filters.group))
 async def _(bot: Client, cmd: Message):
     await handle_user_status(bot, cmd)
@@ -70,6 +70,18 @@ async def Handle_StartMsg(bot:Client, msg:Message):
 async def Files_Option(bot:Client, message:Message):
     
     SnowDev = await message.reply_text(text='**Please Wait**', reply_to_message_id=message.id)
+    if not await check_verification(client, message.from_user.id) and VERIFY == True:
+        btn = [[
+            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{BOT_USERNAME}?start="))
+        ],[
+            InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
+        ]]
+        await message.reply_text(
+            text="<b>You are not verified !\nKindly verify to continue !</b>",
+            protect_content=True,
+            reply_markup=InlineKeyboardMarkup(btn)
+        )
+        return
 
     if message.chat.type == enums.ChatType.SUPERGROUP and not await db.is_user_exist(message.from_user.id):
         botusername = await bot.get_me()
