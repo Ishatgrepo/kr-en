@@ -9,7 +9,7 @@ from pyrogram.errors import FloodWait
 from pyrogram import Client, filters, enums
 from .check_user_status import handle_user_status
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
-
+from utils import verify_user, check_token
 @Client.on_message((filters.private | filters.group))
 async def _(bot: Client, cmd: Message):
     await handle_user_status(bot, cmd)
