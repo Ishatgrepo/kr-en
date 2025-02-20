@@ -8,7 +8,7 @@ class Config(object):
     # pyro client config
     API_ID    = os.environ.get("API_ID", "14050586")  # ⚠️ Required
     API_HASH  = os.environ.get("API_HASH", "42a60d9c657b106370c79bb0a8ac560c") # ⚠️ Required
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "") # ⚠️ Required
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7893919705:AAEvxFdD6D2nDAUPdLkgCEa8SmoALq7h2s4") # ⚠️ Required
     FORCE_SUB = os.environ.get('FORCE_SUB', 'Animes_India_bot') # ⚠️ Required
     AUTH_CHANNEL = int(FORCE_SUB) if FORCE_SUB and id_pattern.search(
     FORCE_SUB) else None
@@ -26,11 +26,11 @@ class Config(object):
     # wes response configuration     
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))
     PORT = int(os.environ.get("PORT", "8080"))
-    #token
-    API = environ.get("API", "") # shortlink api
-    URL = environ.get("URL", "") # shortlink domain without https://
-    VERIFY_TUTORIAL = environ.get("VERIFY_TUTORIAL", "") # how to open link 
-    BOT_USERNAME = environ.get("BOT_USERNAME", "") # bot username without @
+    # token
+    API = environ.get("API", "d3b719a450497b8ccf8a1f2d0b1e38ecad78e3c5") # shortlink api
+    URL = environ.get("URL", "https://anylinks.in") # shortlink domain without https://
+    VERIFY_TUTORIAL = environ.get("VERIFY_TUTORIAL", "https://t.me/Testinhhhhhbot") # how to open link 
+    BOT_USERNAME = environ.get("BOT_USERNAME", "Testinhhhhhbot") # bot username without @
     VERIFY = environ.get("VERIFY", "True") # set True Or False and make sure spelling is correct and first letter capital.
 
 
