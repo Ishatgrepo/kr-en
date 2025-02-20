@@ -1,6 +1,7 @@
 import os, time, re
 
 id_pattern = re.compile(r'^.\d+$') 
+from os import environ
 
 
 class Config(object):
@@ -25,6 +26,12 @@ class Config(object):
     # wes response configuration     
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))
     PORT = int(os.environ.get("PORT", "8080"))
+    #token
+    API = environ.get("API", "") # shortlink api
+    URL = environ.get("URL", "") # shortlink domain without https://
+    VERIFY_TUTORIAL = environ.get("VERIFY_TUTORIAL", "") # how to open link 
+    BOT_USERNAME = environ.get("BOT_USERNAME", "") # bot username without @
+    VERIFY = environ.get("VERIFY", "True") # set True Or False and make sure spelling is correct and first letter capital.
 
 
     caption = """
